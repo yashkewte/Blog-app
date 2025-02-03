@@ -9,19 +9,19 @@ export default function Protected({children, authentication=true}) {
 
     useEffect(()=>{
         // easy way
-        // if (authStatus === true ) {
-        //     navigate('/')
-        // }else if(authStatus === false){
-        //     navigate('/login')
-        // }
+        if (authStatus === true ) {
+            navigate('/')
+        }else if(authStatus === false){
+            navigate('/login')
+        }
 
         // complex way
 
-        if (authentication && authStatus !== authentication){
-            navigate('/login')
-        }else if(!authentication && authStatus !== authentication){
-            navigate('/')
-        }
+        // if (authentication && authStatus !== authentication){
+        //     navigate('/login')
+        // }else if(!authentication && authStatus !== authentication){
+        //     navigate('/')
+        // }
         setLoader(false)
 
     },[authStatus,navigate,authentication])
